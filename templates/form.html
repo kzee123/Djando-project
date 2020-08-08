@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Reservation Form</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'lib/bootstrap-datepicker.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/bootstrap-datepicker.css' %}" >
+
+
+    <script>
+            $(function() {
+            $('.dates #usr1').datepicker({
+                'format': 'yyyy-mm-dd', 
+                'autoclose': true
+            });
+        });
+            </script>
+
+
+    </head>
+    <body>
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div id="booking-form" class="booking-form">
+        <form action="insert.html" method="post">
+
+            {% csrf_token %}
+            <div align="center"><img class="logo" src="{% static 'img/example_logo.png' %}" title="Example Logo" alt="Example Logo"></div>
+            <div class="h1">Reservation Form</div>
+            <div id="form-message" class="message hide">
+                Thank you for your enquiry!
+            </div>
+
+            
+
+            <div id="form-content">
+                <div class="group">
+                    <label for="date-from">From</label>
+                    <div class="addon-right">
+                        <input id="date-from" name="date_from" class="form-control" type="date">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+               
+
+                <div class="group">
+                    <label for="date-to">To</label>
+                    <div class="addon-right">
+                        <input id="date-to" name="date_to" class="form-control" type="date">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+                <div class="group">
+                    <label for="room-type">Room type</label>
+                    <div>
+                        <select id="room-type" name="room_type" class="form-control">
+                            <option value="Luxury Single Suite">Luxury Single Suite</option>
+                            <option value="Luxury Double Suite">Luxury Double Suite</option>
+                            <option value="Luxury Double Room">Luxury Double Room</option>
+                            <option value="Budget Suite">Budget Suite</option>
+                        </select>
+                    </div>
+                </div>
+                
+
+             
+                
+                
+                <div class="group">
+                    <label for="adults">Adults</label>
+                    <div>
+                        <select id="adults" name="adults" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="group">
+                    <label for="children">Children</label>
+                    <div>
+                        <select id="children" name="children" class="form-control">
+                            <option value="-">-</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="group">
+                    <label for="name">Name</label>
+                    <div><input id="name" name="name" class="form-control" type="text" placeholder="Name"></div>
+                </div>
+                <div class="group">
+                    <label for="gender">Gender</label>
+                    <div>
+                        <select id="gender" name="gender" class="form-control">
+                            <option value="-">-</option>
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="group">
+                    <label for="email">Email</label>
+                    <div><input id="email" name="email" class="form-control" type="email" placeholder="Email"></div>
+                </div>
+                
+                <div class="group">
+                    <label for="phone">Phone</label>
+                    <div><input id="phone" name="phone" class="form-control" type="text" placeholder="Phone"></div>
+                </div>
+
+                <div class="group">
+                    <label for="Age">Age</label>
+                    <div><input id="age" name="age" class="form-control" type="integer" placeholder="Age"></div>
+                </div>
+
+                <div class="group">
+                    <label for="CNIC">CNIC</label>
+                    <div><input id="cnic" name="cnic" class="form-control" type="text" placeholder="CNIC"></div>
+                </div>
+
+
+                <div class="group">
+                    <label for="payment method">Payement Method</label>
+                    <div>
+                        <select id="method" name="method" class="form-control">
+                            <option value="on spot">On spot</option>
+                            <option value="credit card">Credit card</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="group submit">
+                    <label class="empty"></label>
+                   <input name="submit" type="submit" value="Submit">
+                </div>
+
+            </div>
+            <div id="form-loading" class="hide"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+</form>
+
+
+    <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
